@@ -4,6 +4,11 @@ import './TodoItem.css';
 
 
 class TodoItem extends Component {
+
+    shouldComponentUpdate(nextProps, nextState) {
+        return this.props.todos!== nextProps.todos;
+    }
+
     render() {
         const { text, checked, id, onToggle, onRemove } = this.props;
         return (

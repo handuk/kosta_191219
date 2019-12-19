@@ -2,16 +2,16 @@ import React, { Component } from "react";
 import TodoListTemplate from "./components/TodoListTemplate";
 import Form from "./components/Form";
 import TodoItemList from "./components/TodoItemList";
+const initialTodos= new Array(500).fill(0).map(
+  (item, idx) => ({ id: idx, text: `일정${idx}`, checked: true })
+);
+
 
 class App extends Component {
   id = 3;
   state = {
     input: "",
-    todos: [
-      { id: 0, text: "리액트 소개", checked: false },
-      { id: 1, text: "리액트 구조", checked: true },
-      { id: 2, text: "리액트 사용", checked: false }
-    ]
+    todos: initialTodos
   };
 
   handleChange = e => {
@@ -57,9 +57,9 @@ class App extends Component {
   handleRemove= (id) => {
     const{ todos} = this.state;
     this.setState({
-    todos: todos.filter(todo=> todo.id !== id)
+      todos: todos.filter(todo=> todo.id !== id)
     });
-    }
+  }
 
   render() {
     const { input, todos } = this.state;
