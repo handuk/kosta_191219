@@ -5,7 +5,7 @@ const TodoListTemplate = ({form, children}) => {
     return (
         <main className="todo-list-template">
             <div className="title">
-                오늘할일
+                오늘할일({process.env.REACT_APP_TITLE})
             </div>
             <section className="form-wrapper">
                 {form}
